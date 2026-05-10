@@ -1,0 +1,62 @@
+<!--⋆｡‧˚ʚ♡ɞ˚‧｡⋆ Pizzaria das amigas - pedidos.html-->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Pedido</title>
+    <script>
+        function enviarPedido() {
+            const nome = document.getElementById("nome").value;
+            const telefone = document.getElementById("telefone")?.value || ''; // Caso queira adicionar telefone
+            const endereco = document.getElementById("endereco")?.value || ''; // Caso queira adicionar endereço
+            const pizza = document.getElementById("pizza").value;
+            const refri = document.getElementById("refrigerante").value;
+
+            // Verifica se um refrigerante foi selecionado
+            const refriText = refri ? ` e uma ${refri}` : '';
+
+            const mensagem = `Obrigado, ${nome}! Seu pedido de "${pizza}${refriText}" foi registrado.`;
+            alert(mensagem);
+            location.href = 'index.html';
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="img/pizza (3).jpg" title="Pizza com a amiga é mais gostoso" width="300" height="200" />
+    <h1>Fazer Pedido</h1>
+    <form onsubmit="enviarPedido(); return false;">
+        <label for="nome">Seu nome:</label>
+        <input type="text" id="nome" required><br><br>
+
+        <label for="pizza">Escolha sua pizza:</label>
+        <select id="pizza" required>
+            <option value="">Selecione um sabor</option>
+            <option>Margherita</option>
+            <option>Calabresa</option>
+            <option>Quatro Queijos</option>
+            <option>Frango com Catupiry</option>
+            <option>Chocolate</option>
+            <option>Abacaxi</option>
+            <option>Especial</option>
+            <option>Misteriosa</option>
+        </select><br><br>
+
+        <label for="refrigerante">Escolha seu refrigerante:</label>
+        <select id="refrigerante">
+            <option value="">Sem refrigerante</option>
+            <option>Coca-Cola</option>
+            <option>Fanta</option>
+            <option>Guaraná</option>
+            <option>Pepsi</option>
+        </select><br><br>
+
+        <button type="submit">Enviar Pedido</button><br>
+    </form>
+    <br><br><br><button onclick="location.href='index.html'">Voltar ao Início</button>
+</body>
+
+</html>
